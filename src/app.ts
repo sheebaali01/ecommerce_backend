@@ -2,6 +2,7 @@ import express, { NextFunction, Request, Response } from 'express';
 import { Error } from 'mongoose';
 import { errorMiddleware } from './middlewares/error.js';
 import userRoute from './routes/user.js';
+import productRoute from './routes/products.js';
 import { connectDB } from './utils/features.js';
 
 const port = 4000;
@@ -14,6 +15,7 @@ app.get('/', (req, res) => {
 });
 
 app.use("/api/v1/user" , userRoute);
+app.use("/api/v1/product" , productRoute);
 
 app.use(errorMiddleware)
 app.listen(port, () => {
