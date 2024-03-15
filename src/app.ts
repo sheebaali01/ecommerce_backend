@@ -17,7 +17,9 @@ app.get('/', (req, res) => {
 app.use("/api/v1/user" , userRoute);
 app.use("/api/v1/product" , productRoute);
 
-app.use(errorMiddleware)
+app.use("/uploads", express.static("uploads"));
+app.use(errorMiddleware);
+
 app.listen(port, () => {
     console.log(`express started at http://localhost:${port}`);
 })
