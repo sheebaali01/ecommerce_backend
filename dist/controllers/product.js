@@ -56,7 +56,7 @@ export const getSingleProduct = TryCatch(async (req, res, next) => {
     });
 });
 export const updateProduct = TryCatch(async (req, res, next) => {
-    const { id } = req.params.id;
+    const { id } = req.params;
     const { name, category, price, stock } = req.body;
     const photo = req.file;
     const product = await Product.findById(id);
