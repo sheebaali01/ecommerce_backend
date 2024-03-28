@@ -11,14 +11,13 @@ export const newOrder = TryCatch(async (req: Request<{}, {}, NewOrderRequestBody
 
     if (!shippingInfo || !orderItems || !user || !subtotal || !tax || !total)
       return next(new ErrorHandler("Please Enter All Fields", 400));
-      
+
     const order = await Order.create({
         shippingInfo,
         user,
         subtotal,
         tax,
         shippingCharges,
-        discount,
         total,
         orderItems
     });
